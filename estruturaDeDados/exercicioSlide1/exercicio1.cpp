@@ -59,6 +59,7 @@ void insertionSort(int *vetor) {
             vetor[j + 1] = vetor[j];
             j = j - 1;
         }
+        vetor[j + 1] = chave;
     }
 
 }

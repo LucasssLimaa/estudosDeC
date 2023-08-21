@@ -19,26 +19,18 @@ int mostraVetor(int *vetor)
     }
 }
 
-int insertionSort(int *vetor)
-{
-    int aux, j;
+void insertionSort(int *vetor) {
 
-    for (int i = 0; i < TAM - 1; i++)
-    {
-        if (vetor[i] > vetor[i + 1])
-            ;
-        aux = vetor[i + 1];
-        vetor[i + 1] = vetor[i];
-        vetor[i] = aux;
-        j = i - 1;
-        while (j >= 0)
-        {
-            if (aux < vetor[j])
-            {
-                vetor[j + 1] = vetor[j];
-            }
-        }
+    for(int i = 1; i < TAM; i++) {
+        int chave = vetor[i];
+        int j = i - 1;
+        while(j >= 0 && vetor[j] > chave) {
+            vetor[j + 1] = vetor[j];
+            j = j - 1;
+        } 
+        vetor[j + 1] = chave;
     }
+    
 }
 
 int main()
@@ -52,7 +44,7 @@ int main()
     printf("Ordem atual do vetor: ");
     mostraVetor(vetor);
 
-    bubbleSort(aux, vetor);
+    insertionSort(vetor);
 
     printf("\nVetor em ordem crescente: ");
     mostraVetor(vetor);
