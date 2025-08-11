@@ -27,7 +27,7 @@ int divisao(int vetor[], int inicio, int fim) {
     int pivo = vetor[fim];
     int i = inicio;
 
-    for(int j = inicio; j < TAM; j++) {
+    for(int j = inicio; j < fim; j++) {
         if(vetor[j] <= pivo) {
             troca(&vetor[i], &vetor[j]);
             i++;
@@ -36,7 +36,7 @@ int divisao(int vetor[], int inicio, int fim) {
 
     troca(&vetor[i], &vetor[fim]);
 
-    return pivo;
+    return i;
 }
 
 void quickSort(int vetor[], int inicio, int fim) {
@@ -52,10 +52,10 @@ void buscaBinaria(int vetor[], int entrada, int inicio, int fim) {
 
     int meio = (inicio + fim) / 2;
 
-    if(entrada == meio) {
+    if(entrada == vetor[meio]) {
         printf("O valor esta na posicao %d", meio + 1);
     } else {
-        if(entrada < meio) {
+        if(entrada < vetor[meio]) {
             if(inicio == meio) {
                 printf("Valor nao encontrado");
             } else {
